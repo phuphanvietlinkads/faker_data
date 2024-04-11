@@ -2,31 +2,52 @@ const {faker}  = require("@faker-js/faker")
 
 function createRanbdomUser(){
     return {
-        id:faker.string.uuid(),
-        manager_id: faker.string.uuid(),
-        azure_id: faker.string.uuid(),
-        slack_id: faker.string.uuid(),
-        role: "ADMIN",
-        type:"REMOTE",
-        name: faker.internet.userName(),
-        address: faker.location.streetAddress(),
-        group:"MEDIBA",
-        company_phone_number: "81-3-6825-0189",
-        department: "IT",
-        position: "STAFF",
-        area_code: "76",
-        office_name:"Vietlink"
+        name: faker.person.fullName(),
+        age: faker.number.int(1,50),
+        email: faker.internet.email(),
+        address: faker.location.streetAddress()
     }
 }
 
-function createUser() {
+function createStore() {
+    return {
+        name: faker.company.name(),
+        address: faker.location.streetAddress(),
+        phoneNumner: faker.phone.number(),
+        mst: faker.number.int(),
+        type: "person"
+    }
+}
+
+
+function createProduct(){
+    return {
+        storeId  :  faker.number.int({min:1,max:1000}),
+        name: faker.commerce.productName(),
+        price: faker.commerce.price(),
+        disocunt: 0.5,
+
+    }
+}
+function renderSQl() {
      const user = faker.helpers.multiple(createRanbdomUser, {
         count: 1000,
       });
-      return user;
+    const store = faker.helpers.multiple(createStore, {
+        count: 1000
+    })
+    const product = faker.helpers.multiple(createProduct, {
+        count : 1000
+    })
+    return {
+        user,store,product
+    }
       
 }
 
 module.exports = {
-    createUser,
+    createRanbdomUser,
+    createProduct,
+    createStore,
+    renderSQl
 }

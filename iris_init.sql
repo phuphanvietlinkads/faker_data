@@ -1,0 +1,8 @@
+INSERT INTO `nestdemo`.`alert_manual_settings` (`id`, `disaster_type`, `target_group`, `is_training`) VALUES ('1', 'EARTHQUAKE', 'GROUP', '0');
+INSERT INTO `nestdemo`.`emergency_warnings` (`id`, `prefecture_code`, `region_code`, `area_code`, `event_time`, `event_id`, `type`) VALUES ('1', '17', '7', '76', '2024-09-04', '1', 'tsunamis');
+INSERT INTO `nestdemo`.`earthquakes` (`id`, `prefecture_code`, `region_code`, `area_code`, `event_time`, `event_id`, `seismic_intensity`, `magnitude`) VALUES ('1', '17', '7', '76', '2024-09-04', '1', '1.5', '1.5');
+INSERT INTO `nestdemo`.`tsunamis` (`id`,`prefecture_code`, `region_code`, `area_code`, `event_time`, `event_id`) VALUES ('1','17', '7', '76', '2024-04-09', '1');
+INSERT INTO `nestdemo`.`alerts` (`id`, `prefecture_code`, `region_code`, `area_code`, `event_time`, `alertable_id`, `alertable_type`, `earthquakesIdId`, `emergencyWarninsIdId`, `tsunamisIdId`) VALUES ('1', '17', '7', '76', '2024-04-09', '1', '', '1', '1', '1');
+# INSERT INTO `nestdemo`.`user` (`id`, `slack_id`, `role`, `type`, `name`, `address`, `group`, `department`, `company_phone_number`, `position`, `office_name`, `area_code`, `company_email`) VALUES ('1', '1234', 'ADMIN', 'REMOTE', 'phu', '123 location', 'Vietlink', 'IT', '0799992551', 'COO', 'Vietlink', '76', 'phankieuphu@vietlinkads.com');
+INSERT INTO `nestdemo`.`message_settings` (`id`, `disaster_type`, `title`, `body`) VALUES ('1', 'TSUNAMI', 'Có thiên tai', 'Bạn ổn không nhấn vào link để chúng tôi biết nhé');
+INSERT INTO `nestdemo`.`alert_sent_histories` (`id`, `target_channel`, `send_status`, `is_user_responsed`, `resend_attempts`, `alertIdId`, `userIdId`, `messageSettingsidId`) VALUES ('1', 'SLACK', '0', '1', '1', '1', '1', '1');
